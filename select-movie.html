@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Movie</title>
+    
+    <!-- Link to separate CSS stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/select-movie.css">
+</head>
+<body>
+    <header class="site-header">
+        <img class="header-image" src="1.png" alt="Header Image">
+        <h1 class="site-title">Explore Your Entertainment!!</h1>
+        <div class="nav-links">
+            <nav class="navigation">
+                <a href="index.html">Home</a>
+                <a href="login.html">Login</a>
+            </nav>
+            <input type="text" class="search-bar" placeholder="Search Movies...">
+            <button class="search-button">Search</button>
+        </div>
+    </header>
+
+    <div class="select-movie-container">
+        <h2>Movie: <span id="movie-title"></span></h2>
+        <h3>Select Your Seats:</h3>
+        <div id="seat-selection">
+            <!-- Seats will be generated here -->
+        </div>
+        <div class="price-list">
+            <p><span class="legend normal"></span> Normal Seat - ₹200</p>
+            <p><span class="legend royal"></span> Royal Sofa - ₹500</p>
+        </div>
+        <button id="book-seats">Book Now</button>
+    </div>
+
+    <footer class="site-footer">
+        <p>&copy; 2024 Movie Ticket Booking. All rights reserved.</p>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <script src="js/scripts.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieTitle = urlParams.get('movie');
+        document.getElementById('movie-title').textContent = movieTitle;
+
+        const seatSelection = document.getElementById('seat-selection');
+
+        // Create seats (10 rows, with different types)
+        const occupiedSeats = [5, 12, 13, 18, 19, 20, 21, 22, 36, 37, 38, 39, 70, 71, 73, 85, 86, 100, 101, 102, 103, 104]; // Example of occupied seats
+        const seatLayout = [
+            ['normal', 'normal', '', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', '', 'normal', 'normal'],  // Row 1
+            ['normal', 'normal', '', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', '', 'normal', 'normal'],  // Row 2
+            ['normal', 'normal', '', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', '', 'normal', 'normal'],  // Row 3
+            ['normal', 'normal', '', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', '', 'normal', 'normal'],  // Row 4
+            ['', '', '', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', '', '', ''],  // Row 5
+            ['normal', 'normal', '', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', 'normal', '', 'normal', 'normal'],  // Row 6
+            ['royal', 'royal', '', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', '', 'royal', 'royal'],  // Row 7
+            ['royal', 'royal', '', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', '', 'royal', 'royal'],  // Row 8
+            ['royal', 'royal', '', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', '', 'royal', 'royal'],  // Row 9
+            ['royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal', 'royal']  // Row 10
+        ];
+
+        let seatNumber = 1; // Start seat numbering
+
+        seatLayout.forEach((row, rowIndex) => {
+            const rowDiv = document.createElement('div');
+            rowDiv.className = 'row';
+            row.forEach((type) => {
+                if (type === '') {
+                    // Skip empty seat
+                    const emptySeat = document.createElement('div');
+                    emptySeat.className = 'seat empty-seat'; // Empty seat without a number
+                    rowDiv.appendChild(emptySeat);
+                } else {
+                    const seat = document.createElement('div');
+                    seat.className = `seat ${type}`;
+                    seat.id = `seat-${seatNumber}`; // Unique ID for the seat
+                    seat.dataset.seatId = seatNumber;
+                    seat.dataset.seatType = type;
+
+                    // Add seat number inside the seat
+                    const seatNumberDisplay = document.createElement('div');
+                    seatNumberDisplay.className = 'seat-number';
+                    seatNumberDisplay.textContent = seatNumber;
+
+                    seat.appendChild(seatNumberDisplay); // Add seat number to the seat
+
+                    if (occupiedSeats.includes(seatNumber)) {
+                        seat.classList.add('occupied');
+                        seat.onclick = null; // Disable click for occupied seats
+                    } else {
+                        seat.onclick = function() {
+                            this.classList.toggle('selected');
+                        };
+                    }
+
+                    rowDiv.appendChild(seat);
+                    seatNumber++; // Increment seat number
+                }
+            });
+            seatSelection.appendChild(rowDiv);
+        });
+
+        document.getElementById('book-seats').onclick = function() {
+            const selectedSeats = Array.from(document.querySelectorAll('.selected'))
+                .map(seat => seat.dataset.seatId);
+            
+            if (selectedSeats.length === 0) {
+                alert("Please select at least one seat.");
+                return;
+            }
+
+            // Calculate total price
+            const seatPrices = {
+                normal: 200, // Price in rupees
+                royal:  500   // Price in rupees
+            };
+            const selectedSeatTypes = Array.from(document.querySelectorAll('.selected'))
+                .map(seat => seat.dataset.seatType);
+            const totalPrice = selectedSeatTypes.reduce((total, type) => total + seatPrices[type], 0);
+
+            window.location.href = `confirmation.html?movie=${encodeURIComponent(movieTitle)}&seats=${selectedSeats.join(',')}&totalPrice=${totalPrice}`;
+        };
+    </script>
+</body>
+</html>

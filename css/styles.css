@@ -1,0 +1,224 @@
+/* css/styles.css */
+
+/* Define CSS Variables */
+:root {
+    --primary-color: #007BFF; /* Blue */
+    --primary-hover: #0056b3; /* Darker Blue for hover */
+    --secondary-color: #0056b3; /* Pinkish */
+    --secondary-hover: #007BFF; /* Darker Pink for hover */
+    --background-color: #f4f4f4;
+    --card-background: white;
+    --text-color: #333;
+    --header-footer-radius: 5px;
+    --box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: var(--header-footer-radius);
+}
+
+.header-image {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.site-title {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.navigation a {
+    margin-right: 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navigation a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid var(--primary-color);
+}
+
+.search-button {
+    padding: 5px 10px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background 0.3s;
+}
+
+.search-button:hover {
+    background: var(--primary-hover);
+}
+
+/* Container and Movie Cards */
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.movie-card {
+    background: var(--card-background);
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--box-shadow);
+    transition: transform 0.3s;
+    padding: 10px;
+    text-align: center;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px 5px 0 0;
+}
+
+.movie-card h3 {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: var(--text-color);
+}
+
+.book-button {
+    padding: 10px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+    transition: background 0.3s;
+    font-size: 1em;
+}
+
+.book-button:hover {
+    background: var(--primary-hover);
+}
+
+/* Footer Styles */
+.site-footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: var(--header-footer-radius);
+    margin-top: auto; /* Push footer to the bottom */
+}
+
+/* Responsive Styles */
+
+/* Small devices (max-width: 600px) */
+@media (max-width: 600px) {
+    .site-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .site-title {
+        font-size: 1.5em;
+        margin-top: 10px;
+    }
+
+    .navigation a {
+        margin-right: 10px;
+        font-size: 0.9em;
+    }
+
+    .header-image {
+        width: 80px;
+    }
+
+    .search-bar {
+        width: 100px;
+    }
+
+    .search-button {
+        padding: 5px 8px;
+        font-size: 0.9em;
+    }
+
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+    }
+
+    .movie-card h3 {
+        font-size: 1.1em;
+    }
+}
+
+/* Extra small devices (max-width: 400px) */
+@media (max-width: 400px) {
+    .site-title {
+        font-size: 1.2em;
+    }
+
+    .movie-card h3 {
+        font-size: 1em;
+    }
+
+    .header-image {
+        width: 60px;
+    }
+
+    .search-bar {
+        width: 80px;
+    }
+
+    .search-button {
+        padding: 5px 6px;
+        font-size: 0.8em;
+    }
+
+    .book-button {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+}

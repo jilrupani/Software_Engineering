@@ -1,0 +1,103 @@
+/* css/login.css */
+
+/* Login container adjustments to account for fixed header and footer */
+.login-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px 60px; /* Top and bottom padding to account for fixed header and footer */
+}
+
+.login-box {
+    max-width: 400px;
+    width: 100%;
+    background: var(--login-background);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: var(--text-color);
+}
+
+.login-box label {
+    display: block;
+    margin: 10px 0 5px;
+    color: var(--text-color);
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.login-box input[type="text"]:focus,
+.login-box input[type="password"]:focus {
+    border-color: var(--secondary-color); /* Match header color for focus */
+    outline: none;
+}
+
+.login-box button {
+    background: var(--secondary-color); /* Pinky shade */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.3s;
+    font-size: 1em;
+}
+
+.login-box button:hover {
+    background: var(--secondary-hover);
+}
+
+.back-link {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.back-link a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles for Login Page */
+
+/* Small devices (max-width: 600px) */
+@media (max-width: 600px) {
+    .login-box {
+        padding: 30px 20px;
+    }
+
+    .login-box h2 {
+        font-size: 1.3em;
+    }
+}
+
+/* Extra small devices (max-width: 400px) */
+@media (max-width: 400px) {
+    .login-box {
+        padding: 20px 10px;
+    }
+
+    .login-box h2 {
+        font-size: 1.2em;
+    }
+}
