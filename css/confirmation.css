@@ -1,303 +1,46 @@
-/* css/confirmation.css */
-
-/* Container Styles */
-.container {
-    max-width: 800px;
-    margin: 120px auto 80px; /* Top and bottom margins to account for fixed header and footer */
-    padding: 30px 20px;
-    background: var(--card-background);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px var(--box-shadow);
-    text-align: center;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e0f7fa; /* Light blue background */
+    margin: 0;
+    padding: 20px;
 }
 
-/* Header Styles */
 header {
     text-align: center;
     padding: 20px;
-    background: var(--secondary-color);
-    color: var(--text-color);
-    border-radius: var(--header-footer-radius);
-    margin-bottom: 20px;
+    background: #007BFF; /* Blue header */
+    color: white; /* White text */
 }
 
-header h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Booking Details */
-.booking-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.booking-details .detail {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.booking-details .detail:last-child {
-    border-bottom: none;
-}
-
-.booking-details .label {
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-.booking-details .value {
-    color: var(--text-color);
-}
-
-/* Back to Home Button */
-.container button {
-    padding: 12px 25px;
-    background: var(--primary-color);
+button {
+    padding: 10px 15px;
+    background: #0056b3; /* Darker blue for button */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
-    transition: background 0.3s;
-}
-
-.container button:hover {
-    background: var(--primary-hover);
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px 30px;
-    background: var(--secondary-color);
-    color: white;
-    border-radius: var(--header-footer-radius);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Styles */
-
-/* Medium Devices (max-width: 768px) */
-@media (max-width: 768px) {
-    .container {
-        max-width: 90%;
-        margin: 140px auto 80px;
-        padding: 25px 15px;
-    }
-
-    header h1 {
-        font-size: 1.8em;
-    }
-
-    .booking-details .detail {
-        max-width: 100%;
-    }
-
-    .booking-details .label,
-    .booking-details .value {
-        font-size: 1em;
-    }
-
-    .container button {
-        font-size: 0.95em;
-        padding: 10px 20px;
-    }
-}
-
-/* Small Devices (max-width: 600px) */
 @media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
     .container {
-        margin: 160px auto 80px;
-        padding: 20px 10px;
+        padding: 15px;
     }
 
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    .booking-details .detail {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .booking-details .label,
-    .booking-details .value {
-        font-size: 0.95em;
-    }
-
-    .booking-details .label {
-        margin-bottom: 5px;
-    }
-
-    .container button {
-        font-size: 0.9em;
-        padding: 8px 18px;
-    }
-
-    footer {
-        padding: 15px 20px;
-        font-size: 0.9em;
-    }
-}
-/* css/confirmation.css */
-
-/* Container Styles */
-.container {
-    max-width: 800px;
-    margin: 120px auto 80px; /* Top and bottom margins to account for fixed header and footer */
-    padding: 30px 20px;
-    background: var(--card-background);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px var(--box-shadow);
-    text-align: center;
-}
-
-/* Header Styles */
-header {
-    text-align: center;
-    padding: 20px;
-    background: var(--secondary-color);
-    color: var(--text-color);
-    border-radius: var(--header-footer-radius);
-    margin-bottom: 20px;
-}
-
-header h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-/* Booking Details */
-.booking-details {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.booking-details .detail {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.booking-details .detail:last-child {
-    border-bottom: none;
-}
-
-.booking-details .label {
-    font-weight: bold;
-    color: var(--text-color);
-}
-
-.booking-details .value {
-    color: var(--text-color);
-}
-
-/* Back to Home Button */
-.container button {
-    padding: 12px 25px;
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background 0.3s;
-}
-
-.container button:hover {
-    background: var(--primary-hover);
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px 30px;
-    background: var(--secondary-color);
-    color: white;
-    border-radius: var(--header-footer-radius);
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive Styles */
-
-/* Medium Devices (max-width: 768px) */
-@media (max-width: 768px) {
-    .container {
-        max-width: 90%;
-        margin: 140px auto 80px;
-        padding: 25px 15px;
-    }
-
-    header h1 {
-        font-size: 1.8em;
-    }
-
-    .booking-details .detail {
-        max-width: 100%;
-    }
-
-    .booking-details .label,
-    .booking-details .value {
-        font-size: 1em;
-    }
-
-    .container button {
-        font-size: 0.95em;
-    }
-}
-
-/* Small Devices (max-width: 600px) */
-@media (max-width: 600px) {
-    .container {
-        margin: 160px auto 80px;
-        padding: 20px 10px;
-    }
-
-    header h1 {
-        font-size: 1.5em;
-    }
-
-    .booking-details .detail {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .booking-details .label,
-    .booking-details .value {
-        font-size: 0.95em;
-    }
-
-    .booking-details .label {
-        margin-bottom: 5px;
-    }
-
-    .container button {
-        font-size: 0.9em;
-        padding: 8px 18px;
-    }
-
-    footer {
-        padding: 15px 20px;
-        font-size: 0.9em;
+    button {
+        width: 100%; /* Full width button on small screens */
     }
 }
